@@ -17,6 +17,7 @@
         Brand: <%= item.brand %></p>
        
        <p>
+         <a href="/cart/<%= item.id %>" class="button">Add to Cart</a>
          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
          <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
          <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
