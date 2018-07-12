@@ -10,27 +10,15 @@
   </head>
 
   <body>
-    <header class="headSec">
-      <h1>Garden Store</h1>
-      
-      <ul>
-        <li><%= link_to "Home",  "/" %></li>
-        <li><%= link_to "Products",  "/items" %></li>
-        <li><%= link_to "View Cart",  "/cart" %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        
-      </ul>
-    </header>
+    
+    <%= render 'layouts/header' %>
     
     <div class="container">
       <%= yield %>
     </div>
     
-    <footer class="foot">
-      <a href="/cart/clear" class="button">Clear Cart</a>
-      <h1>This is the Footer</h1>
-    </footer>
+    <%= render 'layouts/footer' %>
+    
   </body>
 </html>
 

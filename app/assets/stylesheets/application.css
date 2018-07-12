@@ -1,7 +1,7 @@
 
 
 .headSec {
-    background: url("/assets/Site/silver-birch-forest.jpg");
+    background: url("/assets/Site/Garden.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height:10px;
@@ -54,7 +54,7 @@ li a {
 
 .foot {
     min-height: 80px;
-    background-color: #b3e0ff;
+    background-color: red;
     width: 100%;
     margin-top: 10px;
     overflow: auto;

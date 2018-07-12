@@ -1,0 +1,9 @@
+<footer class="foot">
+  <a href="/cart/clear" class="button">Clear Cart</a>
+  
+  <% if user_signed_in? %>
+  <%= link_to "Update Profile", edit_user_registration_path %>
+  <% end %>
+  
+  <h1>This is the Footer</h1>
+</footer>
