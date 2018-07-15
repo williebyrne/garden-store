@@ -1,0 +1,55 @@
+<div id="itemsContainer">
+  <h1>Thank You</h1>
+  <!--lecture 9-->
+  <p> You have just placed an order.</p>
+  
+  <table id="customers">
+    <tr>
+    <!-- @orders is the variable declared in create order method-->
+    <% @orders.limit(1).order(id: :desc).each do |order| %>
+    <td>Order Reference: <%= order.id %></td>
+    <% end %>
+    </tr>
+    
+  </table>
+  
+  
+  <table id ="customers">
+  <%  @total = 0 %>
+  
+  <% @orderitems.each do |id, quantity| %>
+  
+  <tr>
+    <% item = Orderitem.find_by_id(id) %>
+    <td><%= item.title %></td>
+    <td><%= item.quantity %></td>
+    <td><%= number_to_currency(item.price, :unit => "€") %></td>
+    <td><% number_to_currency(item.quantity*item.price, :unit => "€") %></td>
+    
+    <% grandTotal = (item.quantity*item.price) %>
+    
+    <% @total += grandTotal %>
+    
+    <% end %>
+    
+  </tr>
+  
+  <tr>
+    <td>Order Total: €<%= @total %></td>
+  </tr>
+  <% shipping = 25 %>
+  <% @overall = @total + shipping %>
+  
+  <tr>
+    <td>
+      Delivery charge: €<%= shipping %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Overall Order Total: <%= number_to_currency(@overall, :unit => "€") %>
+    </td>
+  </tr>
+  </table>
+  
+</div>

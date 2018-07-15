@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   
   
-  devise_for :users
- # get 'cart/index'
+  resources :orders do resources:orderitmes
+  end
+  
+  
+  devise_for :users do resources:orders
+  end
+  
+  get 'cart/index'
   resources :items
   root 'static_pages#home'
   
@@ -10,6 +16,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   
   get '/cart', to: 'cart#index'
+  get '/checkout', to: 'cart#createOrder'
   
   get '/cart/clear', to: 'cart#clear'
   get '/cart/:id', to: 'cart#add'
