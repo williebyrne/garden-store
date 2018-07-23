@@ -20,6 +20,12 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
   end
+  
+  def search
+    st="%#{params[:q]}%"
+    @items=Item.where("title like ?", st)
+    
+  end
 
   # POST /items
   # POST /items.json

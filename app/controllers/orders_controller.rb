@@ -5,13 +5,30 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    #Order.destroy_all
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    
+    @orderitems = Orderitem.where(order_id: params[:id])
+  end
+  
+ 
+  def pay
+  @order = Order.last # improve this
+  @order.update_attribute(:status, "Paid by User:#{current_user.email}")
+  
+  end
+  
+  def shipped
+     # @order = Order.where(order_id: params[:id])
+      @order = Order.find(params[:id])
+      @order.update_attribute(:status, "Dispatched")
   end
 
+  
   # GET /orders/new
   def new
     @order = Order.new
@@ -71,4 +88,6 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:order_date, :user_id, :status)
     end
+    
+    
 end

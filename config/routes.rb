@@ -15,8 +15,14 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
   
+  get '/paid', to: 'orders#pay'
+  
+  get '/shipped/:id', to: 'orders#shipped'
+  
   get '/cart', to: 'cart#index'
   get '/checkout', to: 'cart#createOrder'
+  
+  post '/search', to: 'items#search'
   
   get '/cart/clear', to: 'cart#clear'
   get '/cart/:id', to: 'cart#add'
