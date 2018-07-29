@@ -1,0 +1,22 @@
+<h2>Product Categories</h2>
+
+<% @categories.each do |category|%>
+<div class="itemhols">
+  <table id = "customers">
+  <tr>
+  <td><h1><%= category.title %></h1></td>
+  </tr>
+  <tr>
+  <td><%= category.description %></td>
+  </tr>
+  <tr>
+  <td><%= link_to (image_tag category.image, size: "80x80"), "/category/category.title" %> </td>
+  </tr>
+  <tr>
+  <td><a href="/category/<%= category.title %>" class ="button"><%= category.title %></a></td>
+  </tr>
+  
+  </table>
+</div>
+
+<% end %>

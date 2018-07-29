@@ -1,0 +1,35 @@
+<tr>
+    <td>
+<%= form_tag("/filterShrub", :method => "post") do %>
+<%= submit_tag("Shrubs") %>
+<% st="Shrubs" %>
+
+<% end %>
+    </td>
+    
+
+    <td>
+<%= form_tag("/filterTree", :method => "post") do %>
+<%= submit_tag("Trees") %>
+<% end %>
+    </td>
+    
+    
+    
+    <td>
+<%= form_tag("/filterTools", :method => "post") do %>
+<%= submit_tag("Tools") %>
+<% end %>
+    
+
+    <td>
+<%= form_tag("/filterFlowers", :method => "post") do %>
+<%= submit_tag("Flowers") %>
+<% end %>
+    </td>
+    
+
+  </tr>
+  
+  
+</table>

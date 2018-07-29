@@ -1,0 +1,37 @@
+<b>Filter Products by Category</b>
+<br>
+<br>
+<br>
+
+<table id="filterOptions">
+  
+  <tr>
+    
+    
+    <td> <%=image_tag("oak.jpg", size: "80x80", :alt => "Trees")%></td>
+   
+    
+    
+  </tr>
+  
+  <tr>
+    
+    
+
+    <td>
+<%= form_tag("/filterTree", :method => "post") do %>
+<%= submit_tag("Trees") %>
+<% end %>
+    </td>
+    
+    
+    
+   
+    
+
+  </tr>
+  
+  
+</table>
+
+

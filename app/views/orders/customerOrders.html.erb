@@ -1,0 +1,18 @@
+<div id="itemsContainer">
+  <h1>customer orders</h1>
+  
+  
+  <table id="customers">
+    <tr>
+    <!-- @orders is the variable declared in  method-->
+    <% @orders.limit(5).order(id: :desc).each do |order| %>
+    
+    <td>Order Reference: <%= order.id %></td>
+    
+    </tr>
+    
+    
+    
+    <% end %>
+    
+  </table>
