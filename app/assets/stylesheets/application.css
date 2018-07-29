@@ -1,7 +1,19 @@
+#orderDetails { 
+    
+    display: none;
+    margin: auto;
+    width:80%;
+    border: 3px solid #b3e0ff;
+    padding: 10px;
+    text-align: center;
+}
 
+#cartIcon{
+    float:right;
+}
 
 .headSec {
-    background: url("/assets/Site/Garden.jpg");
+    background: url("/assets/Site/sb5.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height:10px;
@@ -13,7 +25,7 @@
 }
 
 .headSec h1 {
-    color: #ffffff;
+    color: #FFFDD0;
     font-size: 80px;
     padding: 15px;
     
@@ -39,6 +51,10 @@ li a {
     
 }
 
+li:hover {
+background-color: #228b22;
+}
+
 
 .mainCont { 
     
@@ -54,8 +70,8 @@ li a {
 
 .foot {
     min-height: 80px;
-    background-color: navy;
-    color: white;
+    background-color: #333;
+    color: #FFFDD0;
     width: 100%;
     margin-top: 10px;
     overflow: auto;
@@ -81,7 +97,7 @@ li a {
 
 #itemsContainer h1 {
    display: block;
-    color: #4CAF50;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -104,7 +120,7 @@ li a {
 
 .itemhols h1 {
    display: block;
-    color: #4CAF50;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -115,7 +131,7 @@ li a {
 
 .itemhols p {
    display: block;
-    color: #4CAF50;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -135,7 +151,7 @@ li a {
 
 
 .button {
-    background-color: #4CAF50;
+    background-color: #228b22;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -170,7 +186,36 @@ background-color: #ddd;
 padding-top: 12px;    
 padding-bottom: 12px;    
 text-align: left;    
-background-color: #4CAF50;    
+background-color: grey;    
 color: white;
 }
 
+
+
+#filterOptions {    
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 50%;
+}
+
+#filterOptions td, #filterOptions th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+    
+#filterOptions td:nth-child(even){
+background-color: #f2f2f2;
+}
+
+#filterOptions td:hover{
+    background-color: #bebebe;
+}
+
+
+#filterOptions th {    
+padding-top: 12px;    
+padding-bottom: 12px;    
+text-align: center;    
+background-color: #4CAF50;    
+color: white;
+}

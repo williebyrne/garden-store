@@ -1,7 +1,14 @@
-<p>Search section</p>
+<b>Search for a Product</b>
+<br>
+<br>
+<br>
 
 <%= form_tag("/search", :method => "post") do %>
-<%= label_tag(:q, "Search For:") %>
+<%= label_tag(:q, "Enter the Product Name:") %>
 <%= text_field_tag(:q) %>
 <%= submit_tag("Search") %>
 <% end %>
+
+<br>
+<br>
+<br>

@@ -26,7 +26,13 @@ class ItemsController < ApplicationController
     @items=Item.where("title like ?", st)
     
   end
-
+ 
+  
+  def filterTree
+    @items=Item.where("category like ?", "Tree")
+  end
+  
+  
   # POST /items
   # POST /items.json
   def create

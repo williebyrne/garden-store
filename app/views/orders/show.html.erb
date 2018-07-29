@@ -8,13 +8,13 @@
 <p>
   <strong>Order ID:</strong>
  
- This order id is: <%= @order.id %>
+  <%= @order.id %>
 </p>
 
 
 <p>
   <strong>User:</strong>
-  <%= @order.user %>
+  <%= @order.user.email %>
 </p>
 
 <p>
@@ -22,24 +22,41 @@
   <%= @order.status %>
 </p>
 
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
+
+
+
 <%= link_to 'Back', orders_path %>
 
-
+<br>
+<br>
 
 <table id ="customers">
   
+  
+  <tr>
+    <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Product Quantity</th>
+    </tr>
+  </thead>
+  <tbody>  
   <% @orderitems.each do |orderitem| %>
   <tr>
-    
     <td> <%= orderitem.title %> </td>
     <td> <%= orderitem.quantity %> </td>
-    
   </tr>
+  </tbody>
   
   <% end %>
   
 </table>
+
+<br>
+<br>
+
 
 <table id ="customers">
     <tr><a href="/shipped/<%= @order.id %>" class="button">Mark as Shipped</a></tr>

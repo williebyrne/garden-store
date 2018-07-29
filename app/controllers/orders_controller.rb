@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -15,6 +16,13 @@ class OrdersController < ApplicationController
     @orderitems = Orderitem.where(order_id: params[:id])
   end
   
+
+  def customerOrders
+    #id = current_user.id
+    @orders = Order.all#where(user_id: id)
+  end
+ 
+ 
  
   def pay
   @order = Order.last # improve this

@@ -1,13 +1,23 @@
 <footer class="foot">
-  <a href="/cart/clear" class="button">Clear Cart</a>
   
-  <% if user_signed_in? %>
-  <%= link_to "Update Profile", edit_user_registration_path %>
-  <% end %>
+ 
+  <h1>silverbeech.ie</h1>
   
-  <a href="/orders" class="button">View Orders</a>
-  <!--this one works if you have created a scaffold-->
-  <%= link_to "Orders Also", orders_path %>
+  <div style="margin: auto; 
+    width: 150px;
+    border: 3px white;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    vertical-align: top;"> 
+    
+    <ul>
+        <li><%= link_to "Home",  "/" %></li>
+        <li><%= link_to "Products",  "/items" %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+    </ul>
+    </div>
   
-  <h1>This is the Footer</h1>
+  <div style="float:right; font-size: 20px; vertical-align: top;"><p>© 2018 silverbeech.ie</p></div>
 </footer>
