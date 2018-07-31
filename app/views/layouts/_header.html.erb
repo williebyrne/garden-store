@@ -13,13 +13,14 @@
         
         <% if user_signed_in? %>
         
-        <li><a href="/users/edit"> Hello <%= current_user.email %></a></li>
+        <li><a href="/users/edit">Update Profile</a></li>
         <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
-        
+        <li><a href="/admin">Admin</a></li>
         
         <div id="cartIcon">
-        <li><a href="/cart"> (<%= current_user.email %>)</a></li>
-        <li><a href="/cart"> (<%= @cart %>)</a></li>
+        <li><a href="/users/edit"> Hello <%= current_user.email %></a></li>  
+        <li><a href="/cart"> (<%= session[:cart] %>)</a></li>
+        
         <li><%= link_to image_tag("cart.jpg", size: "30x30", :alt => "Shopping Cart"), '/cart' %></li>
         </div>
         
@@ -31,16 +32,6 @@
         
         <% end %>
         
-        <li><a href="/admin">Admin</a></li>
-        
-        <% if user_signed_in? %>
-  
-        
-        <li><a href="/users/edit">Update Profile</a></li>
-        
-        
-        <% end %>
-  
         
         
         

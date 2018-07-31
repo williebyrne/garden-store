@@ -33,15 +33,10 @@ Rails.application.routes.draw do
   
   get '/admin', to: 'static_pages#admin'
   
-  get '/customerOrders', to: 'orders#customerOrders'
+  get '/adminUpdate', to: 'static_pages#adminUpdate'
   
   post '/search', to: 'items#search'
-  
-  post '/adminUpdate', to: 'static_pages#adminUpdate'
- 
- 
-  post '/filterTree', to: 'items#filterTree'
-  
+
   get '/cart/clear', to: 'cart#clear'
   get '/cart/:id', to: 'cart#add'
   get '/cart/remove/:id', to: 'cart#remove'

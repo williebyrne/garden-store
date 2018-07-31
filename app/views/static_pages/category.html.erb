@@ -2,11 +2,6 @@
 
  <div id="itemsContainer">
   
-  
-    <% if user_signed_in? %>
-    <%= link_to 'New Item',  new_item_path, :class => "button", :role => "button" %>
-     <% end %>
-  
   <h1>Items</h1>
      
       <% @items.each do |item| %>
@@ -25,14 +20,7 @@
          <a href="/cart/<%= item.id %>" class="button">Add to Cart</a>
          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
         
-        <% if user_signed_in? %>
-        
-         <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
-         <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-         
-       <% end %>
-       
-       </p>
+        </p>
         
       </div>
     <% end %>

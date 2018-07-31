@@ -3,29 +3,29 @@
 
 <br>
 
-<b>You can enter give admin rights to a user in this section</b>
+<h2>You can give administrative rights to a user in this section:</h2>
 
 <br>
 <br>
-<%= form_tag("/adminUpdate", :method => "post") do %>
-<%= label_tag(:q, "Enter the user name:") %>
-<%= text_field_tag(:q) %>
-<%= submit_tag("Save") %>
-<% end %>
-
 <br>
 
-<% if user_signed_in? %>
-  
-        
+<b>Enter the username:   </b><input type="text" name="newAdmin" style="float;"><br>
+<br>
+<br>
+
+<a href = "/adminUpdate" class = "button">Submit</a>
+<br>
+<br>
+
+<br>
+<br>
+<h2>View all order details:</h2>
 <a href="/orders" class="button">View Orders</a>
  
-<% end %>
 <br>
-
-
 <br>
-
+<br>
+<h2>Manage product categories:</h2>
 <a href="/categories" class="button">Categories</a>
 
 

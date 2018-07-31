@@ -12,17 +12,56 @@
 
 <div id="orderDetails">
     
-  Order Details go here.
-  .
-  .
-  .
-  .
-  .
-  .
+  <h2>Order ID: <%= @order.id %> </h2>
+  
+  <table id ="customers">
+    
+  <%  @total = 0 %>
+  <% @orderitems = Orderitem.where(order_id: @order.id) %>
+  
+  <% @orderitems.each do |id, quantity| %>
+  
+  <tr>
+    <% item = Orderitem.find_by_id(id) %>
+    <td><%= item.title %></td>
+    <td><%= item.quantity %></td>
+    <td><%= number_to_currency(item.price, :unit => "€") %></td>
+    <td><% number_to_currency(item.quantity*item.price, :unit => "€") %></td>
+    
+    <% grandTotal = (item.quantity*item.price) %>
+    
+    <% @total += grandTotal %>
+    
+    <% end %>
+    
+  </tr>
+  
+  <tr>
+    <td>Order Total: €<%= @total %></td>
+  </tr>
+  <% shipping = 10 %>
+  <% @overall = @total + shipping %>
+  
+  <tr>
+    <td>
+      Delivery charge: €<%= shipping %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Overall Order Total: <%= number_to_currency(@overall, :unit => "€") %>
+    </td>
+  </tr>
+  </table>
+  
+  
   
 </div>
-
 <br>
+<br>
+<h1>You may also be interested in:</h1>
+<br>
+<br>
+<%= render 'layouts/popularProducts' %>
 
 
-<h1>You may also like....</h1>

@@ -37,7 +37,7 @@
   <tr>
     <td>Order Total: €<%= @total %></td>
   </tr>
-  <% shipping = 0 %>
+  <% shipping = 10 %>
   <% @overall = @total + shipping %>
   
   <tr>
@@ -52,10 +52,10 @@
   </tr>
   </table>
   
-  <table id ="customers">
-    <tr><a href="paid" class="button">Pay Now</a></tr>
+ 
+  <a href="paid" class="button">Pay Now</a>
     
-  </table>
+  
   
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 

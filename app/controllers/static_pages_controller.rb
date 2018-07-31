@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   
   def home
     @categories = Category.all
+    @orderitems = Orderitem.all
+    @cart = session[:cart]
+    
     
   end
   
@@ -13,12 +16,7 @@ class StaticPagesController < ApplicationController
   
  
   def adminUpdate
-    newAdmin = params[:q]
-    @user = User.where(email: newAdmin)
-   # @user_admin = "True"
-   # @user.save
     
-   @user.update(admin: "True")
     
   end
   
@@ -46,8 +44,10 @@ class StaticPagesController < ApplicationController
   
 
   def help
+    @categories = Category.all
   end
 
   def about
+    @categories = Category.all
   end
 end

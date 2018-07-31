@@ -1,0 +1,13 @@
+<h2>Popular products</h2>
+  
+    <% @orderitems.limit(3).order(id: :desc).each do |orderitem| %>
+    
+    <div class="itemhols">
+    
+    <p><a href="/items" class ="button"><%= orderitem.title %></a></p>
+    
+    <p> <%= orderitem.description %></p>
+    
+</div>
+<% end %>
+

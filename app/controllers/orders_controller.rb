@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!
 
   # GET /orders
   # GET /orders.json
@@ -15,18 +17,12 @@ class OrdersController < ApplicationController
     
     @orderitems = Orderitem.where(order_id: params[:id])
   end
-  
-
-  def customerOrders
-    #id = current_user.id
-    @orders = Order.all#where(user_id: id)
-  end
- 
- 
  
   def pay
   @order = Order.last # improve this
   @order.update_attribute(:status, "Paid by User:#{current_user.email}")
+  @orderitems = Orderitem.all
+  
   
   end
   
