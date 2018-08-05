@@ -15,7 +15,7 @@
        
       <p>
         <a href="/cart/<%= @item.id %>" class="button">Add to Cart</a>
-        <%= link_to 'Back', items_path, :class => "button", :role => "button" %>
+        <%= link_to 'Back to Products', items_path, :class => "button", :role => "button" %>
         
         <% if user_signed_in? %>
         <% if current_user.admin? %>
