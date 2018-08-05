@@ -1,5 +1,14 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!
+  before_action :is_admin?
+  
+  def is_admin?
+      # check if user has admin rights
+      # if not admin then redirect to home page 
+      redirect_to root_path unless current_user.admin? 
+  end
 
   # GET /categories
   # GET /categories.json

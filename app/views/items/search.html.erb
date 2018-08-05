@@ -1,19 +1,16 @@
 <% if @items.length == 0 %>
 <h2>No Products match your search criteria.</h2>
-<% end %>
 
 <br>
 <%= render 'layouts/search' %>
 <br>
 
+<% end %>
 
  <div id="itemsContainer">
- 
- 
-  
      
       <% @items.each do |item| %>
-      <h1>Items</h1>
+      
       <div class="itemhols">
        <h1><%= item.title %></h1>
        
@@ -30,9 +27,11 @@
          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
          
          <% if user_signed_in? %>
+         <% if current_user.admin? %>
 
          <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
          <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+       <% end %>
        <% end %>
        </p>
         

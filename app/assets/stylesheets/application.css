@@ -1,3 +1,7 @@
+.centreText{
+    text-align:center;
+}
+
 #orderDetails { 
     
     display: none;

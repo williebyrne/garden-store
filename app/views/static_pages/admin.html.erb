@@ -1,21 +1,27 @@
-<h1>Admin Page</h1>
-
+<h1>Administration Page</h1>
 
 <br>
 
 <h2>You can give administrative rights to a user in this section:</h2>
 
-<br>
+ <div id="itemsContainer">
+  
+  <h1>Users</h1>
+     
+      <% @users.each do |user| %>
+      <div class="itemhols">
+        <h1>User id: <%= user.id %></h1>
+        <h1>Email: <%= user.email %></h1>
+        <h1>Admin: <%= user.admin %></h1>
+       <a href = "/adminUpdate/<%= user.id %>" class = "button">Give admin rights</a>
+        <a href = "/adminDowngrade/<%= user.id %>" class = "button">Remove admin rights</a>
+     
+      </div>
+    <% end %>
+
 <br>
 <br>
 
-<b>Enter the username:   </b><input type="text" name="newAdmin" style="float;"><br>
-<br>
-<br>
-
-<a href = "/adminUpdate" class = "button">Submit</a>
-<br>
-<br>
 
 <br>
 <br>
@@ -23,9 +29,11 @@
 <a href="/orders" class="button">View Orders</a>
  
 <br>
+
 <br>
 <br>
 <h2>Manage product categories:</h2>
 <a href="/categories" class="button">Categories</a>
 
 
+</div>

@@ -1,5 +1,14 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :is_admin?, only: [:new, :create, :edit, :update, :destroy]
+  
+  def is_admin?
+      # check if user has admin rights
+      # if not admin then redirect to home page 
+      redirect_to root_path unless current_user.admin? 
+  end
 
   # GET /items
   # GET /items.json
@@ -27,12 +36,6 @@ class ItemsController < ApplicationController
     
   end
  
-  
-  def filterTree
-    @items=Item.where("category like ?", "Tree")
-  end
-  
-  
   # POST /items
   # POST /items.json
   def create

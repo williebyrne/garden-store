@@ -1,13 +1,24 @@
-<h2>Popular products</h2>
+<h2>Popular Products</h2>
   
-    <% @orderitems.limit(3).order(id: :desc).each do |orderitem| %>
     
-    <div class="itemhols">
-    
-    <p><a href="/items" class ="button"><%= orderitem.title %></a></p>
-    
-    <p> <%= orderitem.description %></p>
-    
-</div>
-<% end %>
 
+
+  <% @items.limit(3).order(:id).each do |item| %>
+      <div class="itemhols">
+         
+            <p><%= link_to (image_tag item.image_url, :style => "height:100px"), item %></p>
+         
+            <p><%= link_to item.title, item %></p>
+        
+            <p><%= item.description %></p>
+        
+            <p><%= number_to_currency(item.price, :unit => "€") %></p>
+          
+            <% if session[:login] ==1 %>
+              <p><%= link_to 'Edit', edit_item_path(item) %></p>
+              <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <%else%>
+              <p><a href="/cart/<%= item.id %>" class = "button">Add to Cart</a></p>
+            <%end%>
+     </div>       
+    <% end %>

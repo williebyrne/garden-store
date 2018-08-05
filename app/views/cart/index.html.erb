@@ -1,5 +1,7 @@
 <% if @cart.empty? %>
-<p>The cart is empty</p>
+<h1>The cart is empty.</h1>.
+<br>
+<a href="/items" class ="button">Back to Products</a>
 <% end %>
 
 
@@ -37,20 +39,26 @@
             <td ="price"><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
              
          </tr>
-         
-         
              <% total += quantity * item.price %> 
              
-         
         <% end %>
-        
+        <% if @cart.any? %>
         <tr>
-            
-           Grand Total: <%= number_to_currency(total, :unit =>"€") %> 
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Grand Total: <%= number_to_currency(total, :unit =>"€") %></td> 
         </tr>
+        <% end %>
     </table>
+    
+    <% if @cart.any? %>
+    <a href="/items" class="button">Continue Shopping</a>
     <a href="/cart/clear" class="button">Clear Cart</a>
     <a href="/checkout" class="button">Checkout</a>
+    <% end %>
     
 </div>
 

@@ -6,8 +6,10 @@
   <table id="customers">
     <tr>
     <!-- @orders is the variable declared in create order method-->
+    
     <% @orders.limit(1).order(id: :desc).each do |order| %>
     <td>Order Reference: <%= order.id %></td>
+    <% @order = order.id %>
     <% end %>
     </tr>
     
@@ -24,7 +26,7 @@
     <td><%= item.title %></td>
     <td><%= item.quantity %></td>
     <td><%= number_to_currency(item.price, :unit => "€") %></td>
-    <td><% number_to_currency(item.quantity*item.price, :unit => "€") %></td>
+    <% number_to_currency(item.quantity*item.price, :unit => "€") %>
     
     <% grandTotal = (item.quantity*item.price) %>
     
@@ -35,17 +37,23 @@
   </tr>
   
   <tr>
+    <td></td>
+    <td></td>
     <td>Order Total: €<%= @total %></td>
   </tr>
   <% shipping = 10 %>
   <% @overall = @total + shipping %>
   
   <tr>
+    <td></td>
+    <td></td>
     <td>
       Delivery charge: €<%= shipping %>
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td></td>
     <td>
       Overall Order Total: <%= number_to_currency(@overall, :unit => "€") %>
     </td>
@@ -70,8 +78,8 @@
   <input type="hidden" name="amount" value="<%= @overall %>">
   <input type="hidden" name="currency_code" value="EUR">
 
-  <input type="hidden" name="notify" value="/paid"> <!--CHECK THIS-->
-  <input type="hidden" name="return" value="https://1c5e10683a6943908433a97888d08ea1.vfs.cloud9.us-east-2.amazonaws.com/"><!--is / correct?   -->
+  <input type="hidden" name="notify" value="/paid"> 
+  <input type="hidden" name="return" value="https://1c5e10683a6943908433a97888d08ea1.vfs.cloud9.us-east-2.amazonaws.com/paypalReturn">
 
   <!-- Display the payment button. -->
   <input type="image" name="submit" border="0"

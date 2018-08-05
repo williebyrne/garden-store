@@ -3,7 +3,14 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   
   before_action :authenticate_user!
-
+  before_action :is_admin?, only: [:index, :edit, :destroy, :new, :edit]
+  
+  def is_admin?
+      # check if user has admin rights
+      # if not admin then redirect to home page 
+      redirect_to root_path unless current_user.admin? 
+  end
+  
   # GET /orders
   # GET /orders.json
   def index
@@ -22,8 +29,7 @@ class OrdersController < ApplicationController
   @order = Order.last # improve this
   @order.update_attribute(:status, "Paid by User:#{current_user.email}")
   @orderitems = Orderitem.all
-  
-  
+  @items = Item.all
   end
   
   def shipped
@@ -93,5 +99,6 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:order_date, :user_id, :status)
     end
     
+  
     
 end

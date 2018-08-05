@@ -15,7 +15,10 @@
         
         <li><a href="/users/edit">Update Profile</a></li>
         <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+        
+        <% if current_user.try(:admin?) %>
         <li><a href="/admin">Admin</a></li>
+        <% end %>
         
         <div id="cartIcon">
         <li><a href="/users/edit"> Hello <%= current_user.email %></a></li>  
